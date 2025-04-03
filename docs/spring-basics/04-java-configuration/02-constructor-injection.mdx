@@ -1,0 +1,65 @@
+# Constructor Injection
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Another way to inject dependencies is via the constructor. Modify the class implementing the service to enable constructor injection. \
+And update the `AppConfig.java` to use constructor injection.
+
+<Tabs>
+<TabItem value="speakerServiceImpl" label="SpeakerServiceImpl.java" default>
+   ```java
+   package org.lousing.service;
+
+   import org.lousing.model.Speaker;
+   import org.lousing.repository.SpeakerRepository;
+
+   import java.util.List;
+
+   public class SpeakerServiceImpl implements SpeakerService {
+
+       // highlight-next-line
+       private final SpeakerRepository repository;
+
+       // highlight-start
+       public SpeakerServiceImpl(SpeakerRepository repository) {
+           this.repository = repository;
+       }
+       // highlight-end
+
+       @Override
+       public List<Speaker> findAll() {
+           return repository.findAll();
+       }
+   }
+   ```
+  </TabItem>
+
+  <TabItem value="appConfig" label="AppConfig.java">
+  ```java
+  package org.lousing;
+
+  import org.lousing.repository.SpeakerRepository;
+  import org.lousing.repository.StubSpeakerRepositoryImpl;
+  import org.lousing.service.SpeakerService;
+  import org.lousing.service.SpeakerServiceImpl;
+  import org.springframework.context.annotation.Bean;
+  import org.springframework.context.annotation.Configuration;
+
+  @Configuration
+  public class AppConfig {
+
+      @Bean(name="speakerRepository")
+      public SpeakerRepository getSpeakerRepository() {
+          return new StubSpeakerRepositoryImpl();
+      }
+
+      @Bean(name = "speakerService")
+      public SpeakerService getSpeakerService() {
+          // highlight-next-line
+          return new SpeakerServiceImpl(getSpeakerRepository());
+      }
+  }
+  ```
+  </TabItem>
+</Tabs>

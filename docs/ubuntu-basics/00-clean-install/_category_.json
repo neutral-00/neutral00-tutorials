@@ -1,0 +1,8 @@
+{
+  "label": "Clean Install Via USB",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Do a clean install of Ubuntu via USB."
+  }
+}

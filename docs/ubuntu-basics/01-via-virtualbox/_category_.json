@@ -1,0 +1,8 @@
+{
+  "label": "Install Via Oracle VM VirtualBox",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Install of Ubuntu as a VM in Window 11 using Oracle VirtualBox."
+  }
+}
