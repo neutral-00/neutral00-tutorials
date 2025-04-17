@@ -1,0 +1,20 @@
+# PostgreSql Setup
+
+We are going to use Docker Desktop to setup postgres.
+
+## Pre-requisites
+1. Install Docker Desktop
+
+
+## Steps
+1. start Docker Desktop
+2. open terminal and run the command below
+
+```sh
+docker run --name docker-postgres -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postres -d postgres
+```
+
+3c935cc409da7b80a1a0f9a9308ed2dd449e48cd6b03e2522c5227ff05955a21 \
+It downloaded and ran postgress. 
+
+In Docker Desktop you should be able to see a new container. Make sure it is running.

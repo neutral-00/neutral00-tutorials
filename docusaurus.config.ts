@@ -136,7 +136,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.oneLight,
       darkTheme: prismThemes.oneDark,
-      additionalLanguages: ['java'],
+      additionalLanguages: ['java', 'gradle'],
 
     },
   } satisfies Preset.ThemeConfig,

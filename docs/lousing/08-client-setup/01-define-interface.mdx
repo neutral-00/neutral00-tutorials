@@ -1,0 +1,52 @@
+# Define Interface
+
+Define how the structure of models using interfaces.
+
+## ng g interface
+
+create folders as `src/app/features/models`
+cd into it and run the below command to generate the interfaces
+
+```sh
+ng g interface User model
+ng g interface Email model
+ng g interface Fruit model
+```
+
+## Define The Models
+
+Define the models as shown below:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="role" label="user.model.ts" default>
+```ts title="src\app\features\sign-up\models\user.model.ts" showLineNumbers
+import { Email } from "./email.model";
+
+export interface User {
+    id: number;
+    officialName: string;
+    knownAs: string;
+    mobileNumber: string;
+    emails: Email[];
+}
+
+```
+</TabItem>
+<TabItem value="user" label="email.model.ts">
+
+```ts title="src\app\features\sign-up\models\email.model.ts" showLineNumbers
+export interface Email {
+    id: number;
+    address: string;
+    isPrimary: boolean;
+    isVerified: boolean;
+}
+
+```
+
+</TabItem>
+</Tabs>
+

@@ -1,0 +1,104 @@
+# Entity Definitions
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## About Entity
+Entity is a java class that will represent a database table.
+Let's create one entity for representing User details, \
+another for `Email` which will have a `ManyToOne` relationship with `User`. \
+Let's also create an Enum to represent different `Roles`.
+
+## Pre-requisites
+Add the below dependency to `build.gradle`
+```gradle
+implementation 'com.fasterxml.jackson.core:jackson-databind'
+```
+
+## Steps
+1. under `src\java\com\lousing` create a package `entity`
+2. inside it the below classes
+
+<Tabs>
+<TabItem value="role" label="Roles.java" default>
+```java title="com/lousing/constant/Roles.java" showLineNumbers
+package com.lousing.constant;
+
+public enum Roles {
+    LEARNER, TEACHER, ADMIN
+}
+
+
+```
+</TabItem>
+<TabItem value="user" label="User.java">
+
+```java title="src/main/java/com/lousing/entity/User.java" showLineNumbers
+package com.lousing.entity;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.lousing.constant.Roles;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
+
+@Entity(name = "lc_user")
+@Getter
+@Setter
+@NoArgsConstructor
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String officialName;
+    private String knownAs;
+    private String mobileNumber;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Email> emails;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private List<Roles> roles; // A list of enum values directly
+}
+
+```
+</TabItem>
+<TabItem value="email" label="Email.java">
+```java title="src/main/java/com/lousing/constant/Roles.java" showLineNumbers
+package com.lousing.entity;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity(name = "lc_email")
+@Getter
+@Setter
+@NoArgsConstructor
+public class Email {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(unique = true, nullable = false)
+    private String address;
+    private Boolean isPrimary;
+    private Boolean isVerified;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
+    private User user;
+
+}
+
+```
+</TabItem>
+</Tabs>

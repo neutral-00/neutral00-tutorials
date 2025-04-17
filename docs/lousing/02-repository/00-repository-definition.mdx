@@ -1,0 +1,30 @@
+# Repository Definitions
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## About Repository
+Repository is a java interface that entends `JpaRepository`. \
+Doing so will enable us to use common methods to save/retrieve/udpate/delete the entities.
+Repository layer manages storage and access to the data layer.
+
+
+## Steps
+1. under `src\java\com\lousing` create a package `repository`
+2. create the below interfaces
+
+<Tabs>
+<TabItem value="user" label="UserRepository.java">
+
+```java title="src/main/java/com/lousing/repository/UserRepository.java" showLineNumbers
+package com.lousing.repository;
+
+import com.lousing.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+}
+
+```
+</TabItem>
+</Tabs>

@@ -1,0 +1,114 @@
+# API Test - Bruno
+
+Now we can test our APIs using bruno.
+
+## Pre-requisites
+Download and install `Bruno` from the official [site](https://www.usebruno.com/)
+
+### Create A collection:
+
+Better import the below one.
+
+```json title="lousing-bruno.json"
+{
+  "name": "lousing",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "CreateUserSVC",
+      "filename": "CreateUserSVC.bru",
+      "seq": 6,
+      "request": {
+        "url": "http://localhost:8080/api/user",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"officialName\": \"learner-00\",\n  \"knownAs\": \"learner00\",\n  \"emails\": [\n    {\n      \"address\": \"primary.email@example.com\",\n      \"isPrimary\": true,\n      \"isVerified\": true\n    },\n    {\n      \"address\": \"secondary.email@example.com\",\n      \"isPrimary\": false,\n      \"isVerified\": false\n    }\n  ],\n  \"roles\": [\n    \"LEARNER\"\n  ]\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "GetUsersSVC",
+      "filename": "GetUsersSVC.bru",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:8080/api/user",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "UpdateUserSVC",
+      "filename": "UpdateUserSVC.bru",
+      "seq": 8,
+      "request": {
+        "url": "http://localhost:8080/api/user/1",
+        "method": "PUT",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"id\": 1,\n  \"officialName\": \"learner-00\",\n  \"knownAs\": \"learner00\",\n  \"mobileNumber\": null,\n  \"emails\": [\n    {\n      \"id\": 1,\n      \"address\": \"to.arvmail@example.com\",\n      \"isPrimary\": true,\n      \"isVerified\": true\n    },\n    {\n      \"id\": 2,\n      \"address\": \"secondary.email@example.com\",\n      \"isPrimary\": false,\n      \"isVerified\": false\n    }\n  ],\n  \"roles\": [\n    \"LEARNER\"\n  ]\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "lousing",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0.00112152099609375,
+    "filesCount": 6
+  }
+}
+```
+
+After importing it, test the apis. \
+Don't forget to run your Spring Application from IntelliJ.

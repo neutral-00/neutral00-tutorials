@@ -1,0 +1,88 @@
+# Lockback-Spring Setup
+
+Setting up logging to store logs in a file is a great practice for monitoring and debugging your application. Spring Boot makes this process relatively simple using its logging configuration.
+We will need it as we start testing our apis from bruno.
+
+
+### Steps to Set Up Logging:
+
+#### 1. **Add a Logging Framework**
+Spring Boot uses SLF4J with Logback as the default logging framework. You don’t need to explicitly add dependencies unless you want to customize it.
+To add **Logback logging**, all you need is the **Spring Boot logging starter**, which comes bundled with Logback.
+
+### **1. Add the Logging Dependency**
+Modify your `dependencies` section to include:
+
+```gradle
+implementation 'org.springframework.boot:spring-boot-starter-logging'
+```
+
+Though Spring Boot automatically includes this starter, explicitly adding it can be useful when customizing logging behavior.
+
+### **2. Configure Logback Logging**
+Set up your `logback-spring.xml` in `src/main/resources`:
+
+```xml title="logback-spring.xml"
+<configuration>
+    <!-- Console Appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/app-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
+```
+
+This ensures **daily rolling logs** and structured output.
+
+### **3. Set Log Levels in `application.properties`**
+```properties
+spring.application.name=lousing
+
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type=TRACE
+logging.level.com.lousing=debug
+```
+This sets the log level dynamically.
+
+### **4. Use Logging in Your Code**
+Below is just for demo.
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Service
+public class MyService {
+    private static final Logger logger = LoggerFactory.getLogger(MyService.class);
+
+    public void processData() {
+        logger.info("Processing data...");
+        logger.error("Something went wrong!");
+    }
+}
+```
+
+Once configured, restart your application and check `logs/app.log`. 
