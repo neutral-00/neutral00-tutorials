@@ -1,0 +1,8 @@
+{
+  "label": "JVM",
+  "position": 11,
+  "link": {
+    "type": "generated-index",
+    "description": "JVM and Garbase Collection"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Patient Management",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Spring Boot Microservie app for Patient Management"
+  }
+}

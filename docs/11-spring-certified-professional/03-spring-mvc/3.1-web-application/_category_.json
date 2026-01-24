@@ -1,0 +1,8 @@
+{
+  "label": "Web Appplication",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Spring Boot - Web Appplication"
+  }
+}

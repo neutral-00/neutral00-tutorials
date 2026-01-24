@@ -1,8 +1,8 @@
 {
-  "label": "Repository Setup",
+  "label": "02 Data Management",
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Repository Setup - conference app"
+    "description": "Learn the fundamental skill of Data Management in Spring"
   }
 }

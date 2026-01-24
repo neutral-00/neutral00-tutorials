@@ -1,0 +1,6 @@
+# Syllabus - 2.2 Transaction Management with Spring
+
+- 2.2.1 Describe and use Spring Transaction Management
+- 2.2.2 Configure Transaction Propagation
+- 2.2.3 Setup Rollback rules
+- 2.2.4 Use Transactions in Tests

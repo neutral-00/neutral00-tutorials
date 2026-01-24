@@ -1,8 +1,5 @@
 # Observables
 
-Yes, understanding observables is key to acing an Angular interview. They are a core concept, and interviewers expect you to know more than just a surface-level definition. Think of it like this: they want to know **what** observables are, **why** they are used, and **how** they work in practice.
-
------
 
 ### What is an Observable? 💧
 
