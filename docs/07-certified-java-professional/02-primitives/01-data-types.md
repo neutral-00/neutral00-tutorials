@@ -26,6 +26,7 @@ String name = "Pritam";
 * Use **camelCase** by convention
 
 ---
+Next, let's see what type of data variables can hold in Java.
 
 ## 2. Data Types in Java
 
@@ -61,7 +62,7 @@ boolean passed = true;
 
 ---
 
-## 4. Non-Primitive (Reference) Data Types
+## 4. Non-Primitive (aka Reference) Data Types
 
 Non-primitive types store **references to objects**, not the actual value.
 
