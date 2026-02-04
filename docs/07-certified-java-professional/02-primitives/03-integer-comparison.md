@@ -17,7 +17,7 @@ public static void demoIntegerDoubleEquals() {
         System.out.println("x.equals(y) is " + x.equals(y)); // true
 
         Integer i = 128; // Note: Java caches Integer Objects between -128 to 127
-        Integer j = new Integer(128); // deprecated - use Integer.valueOf() instead
+        Integer j = new Integer(128); // deprecated since Java 9 - use Integer.valueOf() instead
 
         System.out.println("i == j is " + (i == j)); // false
         System.out.println("i.equals(j) = " + i.equals(j)); // true
@@ -32,7 +32,9 @@ public static void demoIntegerDoubleEquals() {
          * 🔥 Important things to remember
          * ➡️ Integer a = 100 basically translates to Integer a = Integer.valueOf(100)
          * ➡️ Java caches Integer objects between -128 and 127. Outside this range new objects are created
-         * ➡️ new Integer(x) is deprecated
+         * ➡️ new Integer(x) is deprecated from Java 9+
+         * ➡️ all objects have an equals method to compare values. By default, it compares references.
+         * ➡️ override it to compare using field(s) defined in the object
          * */
 }
 ```
