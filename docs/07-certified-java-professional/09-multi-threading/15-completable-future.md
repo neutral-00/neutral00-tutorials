@@ -1,6 +1,27 @@
-# CompletableFuture
+# Completable Future
 
-In the modern Java world, **`CompletableFuture`** is the gold standard for writing asynchronous, non-blocking code. \
+**`CompletableFuture`** is used for asynchronous programming in Java.
+Asynchronous programming is writing non-blocking code that runs on a separate thread rather than the main thread.
+
+It was introduced in Java 8 to handle the limitations of Future class.
+
+Future is a reference to the result of an asynchronous computation.
+
+## Limitations of Future
+1. It can not be completed manually.
+1. It provides a get method which blocks until the result is available.
+1. It doesn't have the feature to attach a callback.
+1. Multiple futures can not be chained together.
+1. We can't have multiple futures run in parallel and then run some code after all of them completes.
+1. There is no exception handling in the Future API.
+
+
+Chaining is useful when we need to execute a long running task and when the task is done, we need to send the result to another long running task and so on.
+
+`CompletableFuture` implements `Future` and `CompletionStage` interface.
+
+
+
 
 If the original `Future` was a "receipt" for a task, `CompletableFuture` is like a **smart workflow engine**.
 
