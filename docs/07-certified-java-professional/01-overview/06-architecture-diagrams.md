@@ -2,7 +2,7 @@
 
 We can use Unified Modeling Language to
 - analyse business requirements
-- model code strutures
+- model code structures
 - describe applicatoin deployment
 
 ## Different Types of Diagrams
