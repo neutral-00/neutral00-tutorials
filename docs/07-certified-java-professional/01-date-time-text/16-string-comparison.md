@@ -1,8 +1,7 @@
 # String Comparison
 
 
-
-## Why `==` Is Sometimes `true` for Strings in Java
+## 🤔 Why `==` Is Sometimes `true` for Strings in Java
 
 `==` is `true` for Strings when **both references point to the same String object**, usually because of the **String Pool**.
 
@@ -178,7 +177,7 @@ new String("Java")
 
 ---
 
-## Interview One-Liner
+## Interview One-Liner 💡
 
 > `==` may return true for Strings because Java stores string literals in the String Pool and reuses them, but `equals()` should always be used for value comparison.
 
@@ -195,11 +194,3 @@ new String("Java")
 
 ---
 
-Next natural topics (very commonly asked):
-
-* **String immutability (deep dive)**
-* **String vs StringBuilder vs StringBuffer**
-* **Memory diagram: stack, heap, string pool**
-* **Why String is final**
-
-Just tell me where to go next 🚀

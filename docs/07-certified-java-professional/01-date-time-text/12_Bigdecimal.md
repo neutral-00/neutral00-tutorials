@@ -8,7 +8,8 @@
 
 ---
 
-## Why use BigDecimal?
+## Why use BigDecimal over double?
+One liner: double has precision issues.
 
 As you noted, floating-point numbers (`double`, `float`) suffer from **precision issues**. This happens because computers represent numbers in binary, and certain decimal fractions (like 0.1) cannot be represented exactly.
 

@@ -91,15 +91,15 @@ public class Operators {
     System.out.println("false ^ true is " + (false ^ true));
 
     System.out.println("---Bitwise Operators---");
-    // & copies a bit if present in both operands
-    // ! copies a bit if present in either operands
-    // ^ copies a bit if set in one operand but not both
-    // ~ flips the bits
-    // >> move a number of bits to the right specified by the right operand
-    // >>> move a number of bits to the right specified by the right operand and
-    // fill with zeros
-    // << move the left operand bits by the number of bits specified by the right
-    // operand
+    // &  (bitwise AND) copies a bit if present in both operands
+    // |  (bitwise OR) copies a bit if present in either operand
+    // ^  (bitwise XOR) copies a bit if set in one operand but not both
+    // ~  (bitwise NOT / complement) flips the bits
+    // >> (signed right shift) move a number of bits to the right specified by the right operand
+    // >>> (unsigned right shift) move a number of bits to the right specified by the right operand and
+    //     fill with zeros
+    // << (left shift) move the left operand bits by the number of bits specified by the right
+    //     operand
     System.out.println("4 & 5 = " + (4 & 5)); // 4
     /*
      * 1 0 0
@@ -156,3 +156,19 @@ public class Operators {
   }
 }
 ```
+
+
+## Quiz
+
+1. Why is BigDecimal preferred over double for precise financial calculations in Java?
+
+double supports arbitrary precision, unlike BigDecimal.
+---
+
+2. What is the Integer Pool in Java?
+
+A range of integer values cached for reuse to save memory and improve performance.
+
+
+
+
