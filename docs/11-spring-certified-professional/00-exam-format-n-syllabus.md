@@ -8,11 +8,11 @@
 ## Syllabus
 
 1. Spring Core
-1. Data Management
-1. Spring MVC
-1. Testing
-1. Security
-1. Spring Boot
+2. Data Management
+3. Spring MVC
+4. Testing
+5. Security
+6. Spring Boot
 
 **INFO**
 
