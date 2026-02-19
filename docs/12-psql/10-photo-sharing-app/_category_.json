@@ -1,0 +1,8 @@
+{
+  "label": "Photo Sharing App",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "description":"Design database for a Photo Sharing App"
+  }
+}
