@@ -49,4 +49,24 @@ Even if you have **one billion** items, binary search will find your target in o
 [Logarithmic Time Complexity Binary Search](https://www.youtube.com/watch?v=63YxVW5vCL4)
 This video provides a great visual breakdown of how the iterations of binary search map to a logarithmic graph.
 
-**Would you like me to walk through a specific code example of binary search to show exactly how the "halving" happens in a loop?**
+Let's implement binary search.
+```java
+public int binarySearch)(int[] nums, int key) {
+  int left = 0; 
+  int right = nums.length - 1;
+
+  while(left <= right) {
+      int mid = left + (right - left) / 2;
+
+      if(key == nums[mid]) {
+          return mid;
+      } else if(key < nums[mid]) {
+          right = mid - 1; // Shrink the upper bound
+      } else {
+          left = mid + 1;  // Shrink the lower bound
+      }
+  }
+
+  return -1;
+}
+```
